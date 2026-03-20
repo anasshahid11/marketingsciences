@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Marketing Sciences | Sales from Day 1</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Supreme:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/chillax-font@1.0.0/chillax.css" rel="stylesheet">
+    <!-- intl-tel-input CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.css">
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Mouse Trailer Effect -->
+    <div class="mouse-glow"></div>
+    <div class="stars-container"></div>
+
+    <!-- Floating Header -->
+    <header class="floating-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="assets/logo.png" alt="Marketing Sciences Logo" class="logo">
+            </div>
+            <nav class="nav-menu">
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#specialization" class="nav-link">Services</a>
+                <a href="#platforms" class="nav-link">Platforms</a>
+                <a href="#why-us" class="nav-link">Why Us</a>
+            </nav>
+            <button class="header-cta" onclick="scrollToContact()">Get Started</button>
+        </div>
+    </header>
+
+    <!-- Sticky CTA Button -->
+    <button class="sticky-cta" onclick="scrollToContact()">
+        <span class="cta-text">Book a Call</span>
+        <div class="cta-glow"></div>
+    </button>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+        <div class="btn-glow"></div>
+    </button>
+
+    <!-- Section 1: Hero -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-headline">
+                            <span class="headline-line">Proven Marketing</span>
+                            <span class="headline-line">System That Generates</span>
+                            <span class="headline-highlight">Sales from Day 1</span>
+                        </h1>
+                        <p class="hero-subheadline">
+                            We generate revenue using Meta Ads, YouTube Ads, Google Ads + other social media channels
+                        </p>
+                        <button class="hero-cta" onclick="scrollToContact()">
+                            <span class="btn-text">Start Growing Now</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-video">
+                    <div class="video-container glass-panel">
+                        <div class="video-placeholder">
+                            <div class="play-icon">▶</div>
+                            <p class="video-label">CEO Message</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Social Proof -->
+    <section id="social-proof" class="social-proof-section">
+        <div class="container">
+            <h2 class="section-subtitle">Trusted By Leading Brands</h2>
+            <div class="logo-carousel">
+                <div class="logo-track">
+                    <div class="brand-logo-item glass-card">
+                        <img src="assets/brand-logos/agua.png" alt="Agua">
+                    </div>
+                    <div class="brand-logo-item glass-card">
+                        <img src="assets/brand-logos/elyscents.png" alt="Elyscents">
+                    </div>
+                    <div class="brand-logo-item glass-card">
+                        <img src="assets/brand-logos/glamot.png" alt="Glamot">
+                    </div>
+                    <div class="brand-logo-item glass-card">
+                        <img src="assets/brand-logos/madnutra.png" alt="MadNutra">
+                    </div>
+                    <div class="brand-logo-item glass-card">
+                        <img src="assets/brand-logos/pharmatech.png" alt="PharmaTech">
+                    </div>
+                    <div class="brand-logo-item glass-card">
+                        <img src="assets/brand-logos/vital.png" alt="Vital">
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="brand-logo-item glass-card">
+                        <img src="assets/brand-logos/agua.png" alt="Agua">
+                    </div>
+                    <div class="brand-logo-item glass-card">
+                        <img src="assets/brand-logos/elyscents.png" alt="Elyscents">
+                    </div>
+                    <div class="brand-logo-item glass-card">
+                        <img src="assets/brand-logos/glamot.png" alt="Glamot">
+                    </div>
+                    <div class="brand-logo-item glass-card">
+                        <img src="assets/brand-logos/madnutra.png" alt="MadNutra">
+                    </div>
+                    <div class="brand-logo-item glass-card">
+                        <img src="assets/brand-logos/pharmatech.png" alt="PharmaTech">
+                    </div>
+                    <div class="brand-logo-item glass-card">
+                        <img src="assets/brand-logos/vital.png" alt="Vital">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Specialization -->
+    <section id="specialization" class="specialization-section">
+        <div class="container">
+            <h2 class="section-title">Niches We Specialize In</h2>
+            <div class="carousel-3d-container">
+                <div class="carousel-3d">
+                    <div class="niche-card glass-panel glow-card">
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <img src="assets/niche-icons/Supplements.png" alt="Supplements">
+                            </div>
+                            <h3 class="card-title">Supplements / Vitamins</h3>
+                            <p class="card-description">Performance-driven campaigns for health optimization brands</p>
+                        </div>
+                    </div>
+                    <div class="niche-card glass-panel glow-card">
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <img src="assets/niche-icons/Skin.png" alt="Skin/Hair Care">
+                            </div>
+                            <h3 class="card-title">Skin / Hair Care</h3>
+                            <p class="card-description">Beauty brand growth with proven conversion frameworks</p>
+                        </div>
+                    </div>
+                    <div class="niche-card glass-panel glow-card">
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <img src="assets/niche-icons/Aesthetic.png" alt="Aesthetic Clinics">
+                            </div>
+                            <h3 class="card-title">Aesthetic Clinics</h3>
+                            <p class="card-description">Premium client acquisition for medical aesthetics practices</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn" onclick="rotateNiches(-1)">‹</button>
+                    <button class="carousel-btn next-btn" onclick="rotateNiches(1)">›</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Platforms -->
+    <section id="platforms" class="platforms-section">
+        <div class="container">
+            <h2 class="section-title">Advertisement Platforms We Use</h2>
+            <p class="section-description">We select platforms based on where your customers actually convert</p>
+            <div class="carousel-3d-container">
+                <div class="carousel-3d platforms-carousel">
+                    <div class="platform-card glass-panel">
+                        <div class="platform-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook">
+                        </div>
+                        <h3 class="platform-title">Meta Ads</h3>
+                        <p class="platform-subtitle">Facebook + Instagram</p>
+                        <p class="platform-description">Precision targeting across the world's largest social networks</p>
+                    </div>
+                    <div class="platform-card glass-panel">
+                        <div class="platform-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
+                        </div>
+                        <h3 class="platform-title">YouTube Ads</h3>
+                        <p class="platform-subtitle">Video Marketing</p>
+                        <p class="platform-description">Captivate and convert with strategic video campaigns</p>
+                    </div>
+                    <div class="platform-card glass-panel">
+                        <div class="platform-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg" alt="Google Ads">
+                        </div>
+                        <h3 class="platform-title">Google Ads</h3>
+                        <p class="platform-subtitle">Search & Display</p>
+                        <p class="platform-description">Capture high-intent buyers at the moment of search</p>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn" onclick="rotatePlatforms(-1)">‹</button>
+                    <button class="carousel-btn next-btn" onclick="rotatePlatforms(1)">›</button>
+                </div>
+            </div>
+            <p class="platforms-footer">+ other channels where your customers actually convert</p>
+        </div>
+    </section>
+
+    <!-- Section 5: Why Us -->
+    <section id="why-us" class="why-us-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us?</h2>
+            <div class="carousel-3d-container">
+                <div class="carousel-3d why-carousel">
+                    <div class="value-card glass-panel">
+                        <div class="value-number">01</div>
+                        <h3 class="value-title">Niche Expertise</h3>
+                        <p class="value-description">Deep knowledge of specific markets means we speak your customer's language</p>
+                    </div>
+                    <div class="value-card glass-panel">
+                        <div class="value-number">02</div>
+                        <h3 class="value-title">Sales From Day 1</h3>
+                        <p class="value-description"><span class="highlight-badge">No Testing Required</span> – We launch with proven strategies</p>
+                    </div>
+                    <div class="value-card glass-panel">
+                        <div class="value-number">03</div>
+                        <h3 class="value-title">Ready to Launch</h3>
+                        <p class="value-description">Immediate execution with battle-tested frameworks and creative templates</p>
+                    </div>
+                    <div class="value-card glass-panel">
+                        <div class="value-number">04</div>
+                        <h3 class="value-title">End-to-End Growth</h3>
+                        <p class="value-description">Full-funnel management from first click to final conversion</p>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn" onclick="rotateWhy(-1)">‹</button>
+                    <button class="carousel-btn next-btn" onclick="rotateWhy(1)">›</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-text">
+                    <h2 class="section-title">Let's Discuss Your Project</h2>
+                    <p class="contact-description">Tell us about your project and we'll get back to you within 24 hours.</p>
+                    <p class="revenue-text">Helping businesses generate over $35M+ in revenue</p>
+                </div>
+                <div class="contact-form-wrapper glass-panel">
+                    <form id="contact-form" class="contact-form" action="https://formspree.io/f/xaqpnpvy" method="POST">
+                        <div id="form-error" class="form-error"></div>
+                        
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required class="form-input glass-input" placeholder="Your name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Active Email</label>
+                            <input type="email" id="email" name="email" required class="form-input glass-input" placeholder="your@email.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required class="form-input glass-input">
+                            <input type="hidden" id="phone-full" name="phone-full">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="website-url">Website URL (Optional)</label>
+                            <input type="url" id="website-url" name="website-url" class="form-input glass-input" placeholder="https://yourwebsite.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="project-details">Project Details</label>
+                            <textarea id="project-details" name="project-details" required class="form-input glass-input" rows="4" placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget">Monthly Budget</label>
+                            <select id="budget" name="budget" required class="form-input glass-input budget-select">
+                                <option value="">Select Budget</option>
+                                <option value="new">New Business</option>
+                                <option value="1k-10k">$1K – $10K</option>
+                                <option value="10k-50k">$10K – $50K</option>
+                                <option value="50k+">Above $50K</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="form-submit">
+                            <span class="btn-text">Submit Project Request</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/logo.png" alt="Marketing Sciences Logo" class="logo">
+                    <p class="footer-brand">Marketing Sciences</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#hero">Home</a>
+                    <a href="#specialization">Services</a>
+                    <a href="#platforms">Platforms</a>
+                    <a href="#why-us">Why Us</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/marketingsciences/" target="_blank" rel="noopener" class="social-link">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook">
+                    </a>
+                    <a href="https://instagram.com/marketingsciences.eu/" target="_blank" rel="noopener" class="social-link">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-link">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+                    </a>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2026 Marketing Sciences. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- intl-tel-input JS -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
