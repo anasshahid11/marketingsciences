@@ -847,7 +847,9 @@ body {
     pointer-events: none;
 }
 
-.niche-card:hover .card-glow {
+.niche-card:hover .card-glow,
+.platform-card:hover .card-glow,
+.value-card:hover .card-glow {
     opacity: 0.6;
 }
 
@@ -977,22 +979,6 @@ body {
     font-size: 13px;
     margin-right: 5px;
     box-shadow: 0 0 20px var(--parrot-glow);
-}
-
-.value-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--parrot), transparent);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.value-card:hover::before {
-    opacity: 1;
 }
 
 /* ===== CONTACT SECTION ===== */
