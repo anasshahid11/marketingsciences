@@ -50,6 +50,8 @@ body {
     width: 100%;
     position: relative;
     line-height: 1.6;
+    opacity: 0;
+    transition: opacity 0.8s ease;
 }
 
 .container {
@@ -413,6 +415,8 @@ body {
         opacity: 1;
     }
 }
+
+
 
 /* ===== HERO SECTION ===== */
 .hero-section {

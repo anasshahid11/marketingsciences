@@ -406,11 +406,7 @@ platformCards.forEach((card, index) => {
 
 // ===== SMOOTH PAGE LOAD ANIMATION =====
 window.addEventListener('load', () => {
-    document.body.style.opacity = '0';
-    setTimeout(() => {
-        document.body.style.transition = 'opacity 0.5s ease';
-        document.body.style.opacity = '1';
-    }, 100);
+    document.body.style.opacity = '1';
 });
 
 console.log('🚀 Marketing Sciences Website Loaded');
