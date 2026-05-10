@@ -98,29 +98,29 @@ let platformRotation = 0;
 let whyRotation = 0;
 
 function rotateNiches(direction) {
-    // Reverse the direction logic
     nicheRotation -= direction * 120;
     const carousel = document.querySelector('.carousel-3d');
     if (carousel) {
         carousel.style.transform = `rotateY(${nicheRotation}deg)`;
+        resetAutoRotation(carousel);
     }
 }
 
 function rotatePlatforms(direction) {
-    // Reverse the direction logic
     platformRotation -= direction * 120;
     const carousel = document.querySelector('.platforms-carousel');
     if (carousel) {
         carousel.style.transform = `rotateY(${platformRotation}deg)`;
+        resetAutoRotation(carousel);
     }
 }
 
 function rotateWhy(direction) {
-    // Reverse the direction logic
     whyRotation -= direction * 90;
     const carousel = document.querySelector('.why-carousel');
     if (carousel) {
         carousel.style.transform = `rotateY(${whyRotation}deg)`;
+        resetAutoRotation(carousel);
     }
 }
 
@@ -143,6 +143,7 @@ function handleCarouselSwipe(carouselElement, rotateFunction) {
     
     carouselElement.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
+        resetAutoRotation(carouselElement);
     }, {passive: true});
 
     carouselElement.addEventListener('touchend', (e) => {
@@ -153,11 +154,72 @@ function handleCarouselSwipe(carouselElement, rotateFunction) {
     carouselsInitialized.add(carouselElement);
 }
 
+// ===== AUTO-ROTATION SYSTEM =====
+const intervals = {};
+
+function resetAutoRotation(element) {
+    const section = element.closest('section');
+    if (!section) return;
+    const id = section.id || section.className;
+    
+    if (intervals[id]) {
+        clearInterval(intervals[id]);
+        let rotateFn;
+        if (section.classList.contains('specialization-section')) rotateFn = rotateNiches;
+        else if (section.classList.contains('platforms-section')) rotateFn = rotatePlatforms;
+        else if (section.classList.contains('why-us-section')) rotateFn = rotateWhy;
+        
+        if (rotateFn) {
+            // We set a flag to avoid infinite recursion if rotateFn calls resetAutoRotation
+            if (!element.isResetting) {
+                element.isResetting = true;
+                intervals[id] = setInterval(() => rotateFn(1), 2000);
+                setTimeout(() => { element.isResetting = false; }, 100);
+            }
+        }
+    }
+}
+
 // Initialize carousels
 function initCarousels() {
     handleCarouselSwipe(document.querySelector('.carousel-3d'), rotateNiches);
     handleCarouselSwipe(document.querySelector('.platforms-carousel'), rotatePlatforms);
     handleCarouselSwipe(document.querySelector('.why-carousel'), rotateWhy);
+    
+    // Setup Auto-rotation
+    setupAutoRotation();
+}
+
+function setupAutoRotation() {
+    const observerOptions = { threshold: 0.3 };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const id = entry.target.id || entry.target.className;
+            
+            if (entry.isIntersecting) {
+                if (!intervals[id]) {
+                    let rotateFn;
+                    if (entry.target.classList.contains('specialization-section')) rotateFn = rotateNiches;
+                    else if (entry.target.classList.contains('platforms-section')) rotateFn = rotatePlatforms;
+                    else if (entry.target.classList.contains('why-us-section')) rotateFn = rotateWhy;
+                    
+                    if (rotateFn) {
+                        intervals[id] = setInterval(() => rotateFn(1), 2000);
+                    }
+                }
+            } else {
+                if (intervals[id]) {
+                    clearInterval(intervals[id]);
+                    delete intervals[id];
+                }
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.specialization-section, .platforms-section, .why-us-section').forEach(section => {
+        observer.observe(section);
+    });
 }
 
 // Initialize on load
