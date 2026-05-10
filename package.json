@@ -1,0 +1,13 @@
+{
+  "name": "marketingsciences",
+  "version": "1.0.0",
+  "description": "Marketing Sciences Website",
+  "main": "script.js",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

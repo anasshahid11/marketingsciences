@@ -283,11 +283,13 @@ contactForm.addEventListener('submit', (e) => {
     submitBtn.disabled = true;
     
     const formData = new FormData(contactForm);
+    const data = Object.fromEntries(formData.entries());
     
     fetch(contactForm.action, {
         method: 'POST',
-        body: formData,
+        body: JSON.stringify(data),
         headers: {
+            'Content-Type': 'application/json',
             'Accept': 'application/json'
         }
     })
