@@ -26,16 +26,27 @@ let mouseX = 0;
 let mouseY = 0;
 let glowX = 0;
 let glowY = 0;
+let mouseTimeout;
+let touchStartX = 0;
+let touchEndX = 0;
 
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
     
+    clearTimeout(mouseTimeout);
     mouseGlow.style.opacity = '0.6';
+    mouseTimeout = setTimeout(() => {
+        mouseGlow.style.opacity = '0';
+    }, 2000);
     
     if (Math.random() > 0.9) {
         createStar(e.clientX, e.clientY);
     }
+});
+
+document.addEventListener('mouseleave', () => {
+    mouseGlow.style.opacity = '0';
 });
 
 function animateGlow() {
@@ -113,23 +124,6 @@ function rotateWhy(direction) {
     }
 }
 
-// Touch/Swipe support for mobile carousels
-let touchStartX = 0;
-let touchEndX = 0;
-
-function handleCarouselSwipe(carouselElement, rotateFunction) {
-    if (!carouselElement) return;
-    
-    carouselElement.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    }, false);
-
-    carouselElement.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe(rotateFunction);
-    }, false);
-}
-
 function handleSwipe(rotateFunction) {
     if (touchEndX < touchStartX - 50) {
         // Swipe left - go to next
@@ -142,42 +136,36 @@ function handleSwipe(rotateFunction) {
 }
 
 // Enable swipe on all carousels
-if (window.innerWidth > 768) {
+const carouselsInitialized = new Set();
+
+function handleCarouselSwipe(carouselElement, rotateFunction) {
+    if (!carouselElement || carouselsInitialized.has(carouselElement)) return;
+    
+    carouselElement.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+
+    carouselElement.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe(rotateFunction);
+    }, {passive: true});
+    
+    carouselsInitialized.add(carouselElement);
+}
+
+// Initialize carousels
+function initCarousels() {
     handleCarouselSwipe(document.querySelector('.carousel-3d'), rotateNiches);
     handleCarouselSwipe(document.querySelector('.platforms-carousel'), rotatePlatforms);
     handleCarouselSwipe(document.querySelector('.why-carousel'), rotateWhy);
 }
 
-// Make carousels work on mobile by enabling 3D even on smaller screens
-function initMobileCarousels() {
-    if (window.innerWidth <= 768) {
-        // Show carousel controls on mobile
-        document.querySelectorAll('.carousel-controls').forEach(control => {
-            control.style.display = 'flex';
-        });
-        
-        // Enable 3D transform on mobile
-        document.querySelectorAll('.carousel-3d').forEach(carousel => {
-            carousel.style.transformStyle = 'preserve-3d';
-        });
-        
-        // Add touch support
-        handleCarouselSwipe(document.querySelector('.carousel-3d'), rotateNiches);
-        handleCarouselSwipe(document.querySelector('.platforms-carousel'), rotatePlatforms);
-        handleCarouselSwipe(document.querySelector('.why-carousel'), rotateWhy);
-    }
-}
-
 // Initialize on load
-initMobileCarousels();
+initCarousels();
 
-// Reinitialize on window resize
-let resizeTimer;
+// Reinitialize on window resize (only if new elements appear, but here we just ensure listeners are there)
 window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-        initMobileCarousels();
-    }, 250);
+    initCarousels();
 });
 
 // ===== GLOWING BORDER EFFECT ON CARDS =====

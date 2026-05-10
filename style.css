@@ -47,6 +47,8 @@ body {
     background-color: var(--black);
     color: #ffffff;
     overflow-x: hidden;
+    width: 100%;
+    position: relative;
     line-height: 1.6;
 }
 
@@ -61,8 +63,8 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
     z-index: 0;
     overflow: hidden;
@@ -607,6 +609,7 @@ body {
     padding: 20px 0;
     position: relative;
     width: 100%;
+    max-width: 100vw;
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
@@ -1509,43 +1512,43 @@ select.glass-input option {
     }
     
     .carousel-3d .niche-card:nth-child(1) {
-        transform: rotateY(0deg) translateZ(350px);
+        transform: rotateY(0deg) translateZ(250px);
     }
     
     .carousel-3d .niche-card:nth-child(2) {
-        transform: rotateY(120deg) translateZ(350px);
+        transform: rotateY(120deg) translateZ(250px);
     }
     
     .carousel-3d .niche-card:nth-child(3) {
-        transform: rotateY(240deg) translateZ(350px);
+        transform: rotateY(240deg) translateZ(250px);
     }
     
     .platforms-carousel .platform-card:nth-child(1) {
-        transform: rotateY(0deg) translateZ(350px);
+        transform: rotateY(0deg) translateZ(250px);
     }
     
     .platforms-carousel .platform-card:nth-child(2) {
-        transform: rotateY(120deg) translateZ(350px);
+        transform: rotateY(120deg) translateZ(250px);
     }
     
     .platforms-carousel .platform-card:nth-child(3) {
-        transform: rotateY(240deg) translateZ(350px);
+        transform: rotateY(240deg) translateZ(250px);
     }
     
     .why-carousel .value-card:nth-child(1) {
-        transform: rotateY(0deg) translateZ(380px);
+        transform: rotateY(0deg) translateZ(300px);
     }
     
     .why-carousel .value-card:nth-child(2) {
-        transform: rotateY(90deg) translateZ(380px);
+        transform: rotateY(90deg) translateZ(300px);
     }
     
     .why-carousel .value-card:nth-child(3) {
-        transform: rotateY(180deg) translateZ(380px);
+        transform: rotateY(180deg) translateZ(300px);
     }
     
     .why-carousel .value-card:nth-child(4) {
-        transform: rotateY(270deg) translateZ(380px);
+        transform: rotateY(270deg) translateZ(300px);
     }
     
     /* Keep controls visible on mobile */
@@ -1586,5 +1589,45 @@ select.glass-input option {
     .hero-cta .btn-text {
         font-size: 16px;
         line-height: 60px;
+    }
+
+    /* Ultra-compact carousels for small phones */
+    .carousel-3d {
+        height: 400px;
+    }
+
+    .carousel-3d .niche-card,
+    .platforms-carousel .platform-card {
+        width: 240px;
+        margin-left: -120px;
+        padding: 30px 20px;
+    }
+
+    .why-carousel .value-card {
+        width: 220px;
+        margin-left: -110px;
+        padding: 30px 20px;
+    }
+
+    .carousel-3d .niche-card:nth-child(1),
+    .platforms-carousel .platform-card:nth-child(1) {
+        transform: rotateY(0deg) translateZ(160px);
+    }
+    .carousel-3d .niche-card:nth-child(2),
+    .platforms-carousel .platform-card:nth-child(2) {
+        transform: rotateY(120deg) translateZ(160px);
+    }
+    .carousel-3d .niche-card:nth-child(3),
+    .platforms-carousel .platform-card:nth-child(3) {
+        transform: rotateY(240deg) translateZ(160px);
+    }
+
+    .why-carousel .value-card:nth-child(1) { transform: rotateY(0deg) translateZ(200px); }
+    .why-carousel .value-card:nth-child(2) { transform: rotateY(90deg) translateZ(200px); }
+    .why-carousel .value-card:nth-child(3) { transform: rotateY(180deg) translateZ(200px); }
+    .why-carousel .value-card:nth-child(4) { transform: rotateY(270deg) translateZ(200px); }
+    
+    .contact-form-wrapper {
+        padding: 20px;
     }
 }
